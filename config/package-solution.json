@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "share-point-react-adaptive-card-client-side-solution",
+    "id": "d3980659-2e14-42ea-b3ae-a473c0bb314e",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "SharePoint React Adaptive Card description"
+      },
+      "longDescription": {
+        "default": "SharePoint React Adaptive Card description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "share-point-react-adaptive-card Feature",
+        "description": "The feature that activates elements of the share-point-react-adaptive-card solution.",
+        "id": "dce83dcc-9011-4663-b474-dfb89aef5f7c",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/share-point-react-adaptive-card.sppkg"
+  }
+}
