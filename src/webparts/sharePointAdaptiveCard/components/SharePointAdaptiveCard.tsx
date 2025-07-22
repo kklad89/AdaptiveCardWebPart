@@ -28,7 +28,7 @@ export default class SharePointAdaptiveCard extends React.Component<ISharePointA
           //"labels": ["Credit", "1 day purchased from personal budget", "2 days left of 2024. P.S. It will Expire on July 1, 2025"],
           "datasets": [
             {
-              "label": "Vakantiedagen",
+              //"label": "Vakantiedagen",
               "data": [22, 1, 2],
               "backgroundColor": [
                 "rgba(0, 138, 41, 1)",

@@ -51,8 +51,8 @@ export class ChartElement extends AC.CardElement {
   protected internalRender(): HTMLElement | undefined {
     const element = document.createElement("div");
     element.style.width = "100%";
-    element.style.height = "400px";
-    element.style.minHeight = "300px";
+    element.style.height = "100%";
+    //element.style.minHeight = "300px";
 
     this._chartContainer = element;
 
