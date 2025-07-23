@@ -43,6 +43,25 @@ export default class SharePointAdaptiveCard extends React.Component<ISharePointA
               "borderWidth": 1
             }
           ]
+        },
+        "options": {
+          "responsive": true,
+          "maintainAspectRatio": false,
+          "cutout": "70%",
+          "plugins": {
+            "legend": {
+              "display": false
+            },
+            "doughnutLabel": {
+              "display": true,
+              "color": "#333333",
+              "font": {
+                "size": 20,
+                "weight": "bold",
+                "family": "Segoe UI"
+              }
+            }
+          }
         }
       }
     }

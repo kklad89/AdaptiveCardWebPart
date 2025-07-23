@@ -5,6 +5,30 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 
+// Custom doughnut label plugin
+const doughnutLabel = {
+  id: 'doughnutLabel',
+  beforeDraw(chart: any) {
+    if (chart.config.options.plugins?.doughnutLabel?.display) {
+      const { ctx, width, height } = chart;
+      const value = chart.data.datasets[0].data[0];
+      const font = chart.config.options.plugins.doughnutLabel.font;
+      const color = chart.config.options.plugins.doughnutLabel.color;
+
+      ctx.save();
+      ctx.font = `${font.weight} ${font.size}px ${font.family}`;
+      ctx.fillStyle = color;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      // Draw the number slightly above center
+      ctx.fillText(value.toString(), width / 2, height / 2 - font.size/2);
+      // Draw "tegoed" slightly below center
+      ctx.fillText("tegoed", width / 2, height / 2 + font.size/2);
+      ctx.restore();
+    }
+  }
+};
+
 // Register Chart.js components
 ChartJS.register(
   CategoryScale,
@@ -15,7 +39,8 @@ ChartJS.register(
   ArcElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  doughnutLabel
 );
 
 export interface IChartData {
