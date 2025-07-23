@@ -1,97 +1,91 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
+$customizeButton: "customizeButton";
+$customizationButtons: "customizationButtons";
+$gridContainer: "gridContainer";
+$gridItem: "gridItem";
+$dropTarget: "dropTarget";
+$empty: "empty";
+$fixed: "fixed";
+$draggable: "draggable";
+
+:export {
+  sharePointAdaptiveCard: sharePointAdaptiveCard;
+  teams: teams;
+  customizeButton: $customizeButton;
+  customizationButtons: $customizationButtons;
+  gridContainer: $gridContainer;
+  gridItem: $gridItem;
+  dropTarget: $dropTarget;
+  empty: $empty;
+  fixed: $fixed;
+  draggable: $draggable;
+}
+
 .sharePointAdaptiveCard {
   overflow: hidden;
   padding: 1em;
   color: "[theme:bodyText, default: #323130]";
-  color: var(--bodyText);
+  position: relative;
+
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
 }
 
-.welcome {
-  text-align: center;
-  margin-bottom: 2em;
-  padding: 1em;
-  background-color: "[theme:neutralLighterAlt, default: #faf9f8]";
+.customizeButton {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.customizationButtons {
+  display: flex;
+  gap: 1em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 100;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 3em;
+}
+
+.gridItem {
+  min-height: 200px;
+  border: 2px dashed "[theme:neutralLight, default: #edebe9]";
   border-radius: 8px;
-}
-
-.welcomeImage {
-  width: 100%;
-  max-width: 420px;
-}
-
-.adaptiveCardContainer {
-  margin: 2em 0;
   padding: 1em;
-  gap: 0em;
-  border: 1px solid "[theme:neutralLight, default: #edebe9]";
-  max-height: 200px;
-  max-width: 200px; // Adjust width as needed
-  border-radius: 8px;
-  background-color: "[theme:white, default: #ffffff]";
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  h3 {
-    margin-top: 0;
-    color: "[theme:themePrimary, default: #0078d4]";
-    font-weight: 600;
-  }
-}
+  transition: all 0.3s ease;
+  position: relative;
 
-.sampleSection {
-  margin: 2em 0;
-  padding: 1em;
-  background-color: "[theme:neutralLighter, default: #f3f2f1]";
-  border-radius: 8px;
-  
-  h3 {
-    margin-top: 0;
-    color: "[theme:themePrimary, default: #0078d4]";
-    font-weight: 600;
-  }
-}
-
-.instructionsSection {
-  margin: 2em 0;
-  padding: 1em;
-  background-color: "[theme:neutralLighterAlt, default: #faf9f8]";
-  border-radius: 8px;
-
-  h3, h4 {
-    color: "[theme:themePrimary, default: #0078d4]";
-    font-weight: 600;
-  }
-
-  ol {
-    padding-left: 1.5em;
-    
-    li {
-      margin-bottom: 0.5em;
-    }
-  }
-
-  pre {
-    font-family: 'Courier New', monospace;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid "[theme:neutralLight, default: #edebe9]";
-  }
-}
-
-.links {
-  a {
-    text-decoration: none;
-    color: "[theme:link, default:#03787c]";
-    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
-
+  &.draggable {
+    cursor: move;
     &:hover {
-      text-decoration: underline;
-      color: "[theme:linkHovered, default: #014446]";
-      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+      border-color: "[theme:themePrimary, default: #0078d4]";
     }
   }
+
+  &.fixed {
+    border-style: solid;
+    cursor: default;
+  }
+
+  &.dropTarget {
+    border-color: "[theme:themePrimary, default: #0078d4]";
+    background-color: "[theme:neutralLighterAlt, default: #faf9f8]";
+  }
+
+  &.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: "[theme:neutralTertiary, default: #a19f9d]";
+  }
 }
+
+// Add any additional styles here if needed

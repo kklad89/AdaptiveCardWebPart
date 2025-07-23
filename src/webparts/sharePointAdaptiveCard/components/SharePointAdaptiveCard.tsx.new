@@ -92,71 +92,8 @@ export default class SharePointAdaptiveCard extends React.Component<ISharePointA
       defaultLayout: []
     };
   }
-  
-  private _getDefaultAdaptiveCardJson(): string {
-    return JSON.stringify({
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-  "type": "AdaptiveCard",
-  "version": "1.5",
-  "body": [
-    {
-      "type": "TextBlock",
-      "text": "🏖️ Vakantiedagen",
-      "size": "Large",
-      "weight": "Bolder",
-      "spacing": "none"
-    },
-    {
-      "type": "Chart",
-      "spacing": "none",
-      "chartData": {
-        "type": "doughnut",
-        "data": {
-          //"labels": ["Credit", "1 day purchased from personal budget", "2 days left of 2024. P.S. It will Expire on July 1, 2025"],
-          "datasets": [
-            {
-              //"label": "Vakantiedagen",
-              "data": [22, 1, 2],
-              "backgroundColor": [
-                "rgba(0, 138, 41, 1)",
-                "rgba(186, 69, 118, 1)",
-                "rgba(230, 172, 0, 1)"
-              ],
-              "borderColor": [
-                "rgba(0, 138, 41, 1)",
-                "rgba(186, 69, 118, 1)",
-                "rgba(230, 172, 0, 1)"
-              ],
-              "borderWidth": 1
-            }
-          ]
-        },
-        "options": {
-          "responsive": true,
-          "maintainAspectRatio": false,
-          "cutout": "70%",
-          "plugins": {
-            "legend": {
-              "display": false
-            },
-            "doughnutLabel": {
-              "display": true,
-              "color": "#333333",
-              "font": {
-                "size": 20,
-                "weight": "bold",
-                "family": "Segoe UI"
-              }
-            }
-          }
-        }
-      }
-    }
-  ]
-}, null, 0);
-  }
 
-  private _onDragEnd(result: DropResult): void {
+  private _onDragEnd = (result: DropResult): void => {
     if (!result.destination) return;
 
     const cards = [...this.state.cards];
@@ -170,32 +107,32 @@ export default class SharePointAdaptiveCard extends React.Component<ISharePointA
       cards[sourceIdx].position = destinationPos;
       this.setState({ cards });
     }
-  }
+  };
 
-  private _toggleCustomization(): void {
+  private _toggleCustomization = (): void => {
     this.setState(prevState => ({
       isCustomizing: !prevState.isCustomizing,
       defaultLayout: !prevState.isCustomizing ? [...prevState.cards] : prevState.defaultLayout
     }));
-  }
+  };
 
-  private _addNewCard(): void {
+  private _addNewCard = (): void => {
     // Implement add new card logic
-  }
+  };
 
-  private _saveLayout(): void {
+  private _saveLayout = (): void => {
     // Implement save layout logic
     this._toggleCustomization();
-  }
+  };
 
-  private _resetLayout(): void {
+  private _resetLayout = (): void => {
     this.setState({
       cards: [...this.state.defaultLayout],
       isCustomizing: false
     });
-  }
+  };
 
-  private _renderCustomizationButtons(): JSX.Element {
+  private _renderCustomizationButtons = (): JSX.Element => {
     return (
       <Stack horizontal tokens={{ childrenGap: 8 }} className={styles.customizationButtons}>
         <PrimaryButton onClick={this._addNewCard}>Add New Card</PrimaryButton>
@@ -204,24 +141,24 @@ export default class SharePointAdaptiveCard extends React.Component<ISharePointA
         <DefaultButton onClick={this._toggleCustomization}>Cancel</DefaultButton>
       </Stack>
     );
-  }
+  };
 
   public render(): JSX.Element {
     const { hasTeamsContext } = this.props;
     const { cards, isCustomizing } = this.state;
 
     return (
-      <section className={`${styles.sharePointAdaptiveCard} ${hasTeamsContext ? styles.teams : ''}`}>
+      <section className={\`\${styles.sharePointAdaptiveCard} \${hasTeamsContext ? styles.teams : ''}\`}>
         {!isCustomizing ? (
           <DefaultButton 
             className={styles.customizeButton}
-            onClick={() => this._toggleCustomization()}
+            onClick={this._toggleCustomization}
           >
             Customize
           </DefaultButton>
         ) : this._renderCustomizationButtons()}
 
-        <DragDropContext onDragEnd={this._onDragEnd.bind(this)}>
+        <DragDropContext onDragEnd={this._onDragEnd}>
           <div className={styles.gridContainer}>
             {Array.from({ length: 8 }).map((_, index) => {
               const row = Math.floor(index / 4);
@@ -245,7 +182,11 @@ export default class SharePointAdaptiveCard extends React.Component<ISharePointA
                     <div
                       ref={provided.innerRef}
                       {...provided.droppableProps}
-                      className={`${styles.gridItem} ${snapshot.isDraggingOver ? styles.dropTarget : ''} ${!card ? styles.empty : ''} ${card?.isFixed ? styles.fixed : styles.draggable}`}
+                      className={\`\${styles.gridItem} \${
+                        snapshot.isDraggingOver ? styles.dropTarget : ''
+                      } \${!card ? styles.empty : ''} \${
+                        card?.isFixed ? styles.fixed : styles.draggable
+                      }\`}
                     >
                       {card ? (
                         <Draggable
