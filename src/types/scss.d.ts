@@ -1,5 +1,5 @@
-declare module '*.scss' {
-  interface IScssModule {
+declare module '*.module.scss' {
+  interface IStyles {
     sharePointAdaptiveCard: string;
     teams: string;
     container: string;
@@ -20,6 +20,6 @@ declare module '*.scss' {
     cardTitle: string;
     manageHiddenButton: string;
   }
-  const styles: IScssModule;
+  const styles: IStyles;
   export default styles;
 }

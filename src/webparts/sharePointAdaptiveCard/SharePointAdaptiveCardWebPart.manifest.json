@@ -11,11 +11,12 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
     "group": { "default": "Advanced" },
-    "title": { "default": "SharePoint Adaptive Card" },
-    "description": { "default": "SharePoint Adaptive Card description" },
-    "officeFabricIconFontName": "Page",
+    "title": { "default": "Modern SharePoint Dashboard" },
+    "description": { "default": "A modern dashboard using adaptive cards for SharePoint" },
+    "officeFabricIconFontName": "Dashboard",
+    "iconImageUrl": "./assets/dashboard-icon.png",
     "properties": {
-      "description": "SharePoint Adaptive Card"
+      "description": "Modern SharePoint Dashboard"
     }
   }]
 }

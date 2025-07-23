@@ -1,5 +1,9 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
+$sharePointAdaptiveCard: "sharePointAdaptiveCard";
+$teams: "teams";
+$container: "container";
+$buttonContainer: "buttonContainer";
 $customizeButton: "customizeButton";
 $customizationButtons: "customizationButtons";
 $gridContainer: "gridContainer";
@@ -8,10 +12,223 @@ $dropTarget: "dropTarget";
 $empty: "empty";
 $fixed: "fixed";
 $draggable: "draggable";
+$cardContainer: "cardContainer";
+$hideCardButton: "hideCardButton";
+$hiddenCardsSection: "hiddenCardsSection";
+$hiddenCardsList: "hiddenCardsList";
+$hiddenCardItem: "hiddenCardItem";
+$hiddenCardContent: "hiddenCardContent";
+$cardIcon: "cardIcon";
+$cardTitle: "cardTitle";
+$showCardButton: "showCardButton";
+$hiddenCardsManager: "hiddenCardsManager";
+$hiddenCard: "hiddenCard";
+$manageHiddenButton: "manageHiddenButton";
+$manageHiddenSection: "manageHiddenSection";
+
+.#{$sharePointAdaptiveCard} {
+  overflow: hidden;
+  padding: 1em;
+  color: "[theme:bodyText, default: #323130]";
+  position: relative;
+}
+
+.#{$teams} {
+  font-family: $ms-font-family-fallbacks;
+}
+
+.#{$container} {
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.#{$container} {
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.#{$buttonContainer} {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+  min-height: 32px; // Match button height
+}
+
+.#{$customizeButton} {
+  margin-left: auto; // Push to the right when alone
+}
+
+.#{$customizationButtons} {
+  display: flex;
+  gap: 1em;
+  margin-right: 1em;
+}
+
+.#{$hiddenCardsSection} {
+  margin-top: 2em;
+  padding: 1em;
+  border-radius: 4px;
+  background-color: "[theme:neutralLighter, default: #f3f2f1]";
+}
+
+.#{$hiddenCardsList} {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.#{$hiddenCardItem} {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: "[theme:white, default: #ffffff]";
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.#{$hiddenCardContent} {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.#{$cardIcon} {
+  font-size: 1.2em;
+}
+
+.#{$cardTitle} {
+  font-weight: 500;
+}
+
+.#{$showCardButton} {
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-left: 0.5em;
+}
+
+.#{$gridContainer} {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 1em; // Reduced margin since we have padding on container
+}
+
+.#{$gridItem} {
+  min-height: 200px;
+  border: 2px dashed "[theme:neutralLight, default: #edebe9]";
+  border-radius: 8px;
+  padding: 1em;
+  position: relative;
+}
+
+.#{$dropTarget} {
+  background-color: "[theme:neutralLighter, default: #f3f2f1]";
+}
+
+.#{$empty} {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: "[theme:neutralTertiary, default: #a19f9d]";
+}
+
+.#{$fixed} {
+  border-style: solid;
+}
+
+.#{$draggable} {
+  cursor: move;
+}
+
+.#{$cardContainer} {
+  position: relative;
+  height: 100%;
+}
+
+.#{$hideCardButton} {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  z-index: 2;
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$hiddenCardsManager} {
+  margin-top: 2em;
+  padding: 1em;
+  border: 1px solid "[theme:neutralLight, default: #edebe9]";
+  border-radius: 8px;
+}
+
+.#{$hiddenCardsList} {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.#{$hiddenCard} {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 1em;
+  border: 1px solid "[theme:neutralLight, default: #edebe9]";
+  border-radius: 4px;
+  background: "[theme:white, default: #ffffff]";
+}
+
+.#{$cardIcon} {
+  font-size: 1.5em;
+}
+
+.#{$cardTitle} {
+  flex: 1;
+  font-weight: 500;
+  margin-right: 1em;
+}
+
+.#{$showCardButton} {
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.#{$manageHiddenButton} {
+  position: absolute;
+  top: 1em;
+  right: 15em;
+  z-index: 2;
+}
+
+.#{$manageHiddenSection} {
+  margin-top: 2em;
+  padding: 1em;
+  background: "[theme:neutralLighterAlt, default: #faf9f8]";
+  border-radius: 8px;
+  border: 1px solid "[theme:neutralLight, default: #edebe9]";
+}
 
 :export {
-  sharePointAdaptiveCard: sharePointAdaptiveCard;
-  teams: teams;
+  sharePointAdaptiveCard: $sharePointAdaptiveCard;
+  teams: $teams;
+  container: $container;
+  buttonContainer: $buttonContainer;
   customizeButton: $customizeButton;
   customizationButtons: $customizationButtons;
   gridContainer: $gridContainer;
@@ -20,6 +237,68 @@ $draggable: "draggable";
   empty: $empty;
   fixed: $fixed;
   draggable: $draggable;
+  cardContainer: $cardContainer;
+  hideCardButton: $hideCardButton;
+  hiddenCardsSection: $hiddenCardsSection;
+  hiddenCardsList: $hiddenCardsList;
+  hiddenCardItem: $hiddenCardItem;
+  hiddenCardContent: $hiddenCardContent;
+  cardIcon: $cardIcon;
+  cardTitle: $cardTitle;
+  showCardButton: $showCardButton;
+  hiddenCard: $hiddenCard;
+  manageHiddenButton: $manageHiddenButton;
+  manageHiddenSection: $manageHiddenSection;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.cardContainer {
+  position: relative;
+  height: 100%;
+}
+
+.hideCardButton {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  z-index: 2;
+}
+
+.hiddenCardsManager {
+  margin-top: 2em;
+  padding: 1em;
+  border: 1px solid "[theme:neutralLight, default: #edebe9]";
+  border-radius: 8px;
+}
+
+.hiddenCardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.hiddenCard {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.5em;
+  border: 1px solid "[theme:neutralLight, default: #edebe9]";
+  border-radius: 4px;
+}
+
+.cardIcon {
+  font-size: 1.5em;
+}
+
+.cardTitle {
+  flex: 1;
+  font-weight: 500;
 }
 
 .sharePointAdaptiveCard {
@@ -31,12 +310,19 @@ $draggable: "draggable";
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
+
+  .container {
+    max-width: 100%;
+    margin: 0;
+    position: relative;
+  }
 }
 
 .customizeButton {
   position: absolute;
   top: 1em;
   right: 1em;
+  z-index: 2;
 }
 
 .customizationButtons {
@@ -45,7 +331,14 @@ $draggable: "draggable";
   position: absolute;
   top: 1em;
   right: 1em;
-  z-index: 100;
+  z-index: 2;
+}
+
+.manageHiddenButton {
+  position: absolute;
+  top: 1em;
+  right: 15em;
+  z-index: 2;
 }
 
 .gridContainer {
@@ -88,4 +381,70 @@ $draggable: "draggable";
   }
 }
 
-// Add any additional styles here if needed
+.cardContainer {
+  position: relative;
+  height: 100%;
+
+  .hideCardButton {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .hideCardButton {
+      opacity: 0.8;
+    }
+  }
+}
+
+.hiddenCardsManager {
+  margin-top: 1em;
+  padding: 1em;
+  background: "[theme:neutralLighterAlt, default: #faf9f8]";
+  border-radius: 8px;
+  border: 1px solid "[theme:neutralLight, default: #edebe9]";
+
+  h3 {
+    margin: 0 0 1em;
+    font-size: 18px;
+    color: "[theme:neutralPrimary, default: #323130]";
+  }
+}
+
+.hiddenCardsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.hiddenCard {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  background: "[theme:white, default: #ffffff]";
+  border-radius: 4px;
+  border: 1px solid "[theme:neutralLight, default: #edebe9]";
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: "[theme:themePrimary, default: #0078d4]";
+  }
+
+  .cardIcon {
+    font-size: 24px;
+    margin-right: 1em;
+  }
+
+  .cardTitle {
+    flex: 1;
+    font-size: 14px;
+    color: "[theme:neutralPrimary, default: #323130]";
+  }
+}
